@@ -1,0 +1,24 @@
+{
+  "name": "supplier",
+  "plural": "suppliers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "products": {
+      "type": "string"
+    },
+    "acls": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

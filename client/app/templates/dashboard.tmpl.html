@@ -1,0 +1,163 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Heavy Onion</title>
+  </head>
+  <!-- Navigation -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="/#/">
+			<img src="https://img1.wsimg.com/isteam/ip/856f1660-4bf8-4e94-91f8-b5951af276ce/logo/e6a8a9a7-adce-4c39-8be2-496dcf0bb3c5.jpg/:/rs=h:175" width="90" height="90" alt="">
+		  </a>
+  <hr>
+  <ul class="nav">
+  <li class="nav-item">
+	<a class="nav-link active" href="/#/">Home</a>
+	</li>
+  <li class="nav-item">
+    <a class="nav-link" href="/#/shop">Pre-Order</a>
+  </li>
+  <li class="nav-item">
+	<a class="nav-link active" href="/#/app">App Download</a>
+	</li>
+  <li class="nav-item">
+	<a class="nav-link active" href="/#/about">About</a>
+	</li>
+  <li class="nav-item">
+	<a class="nav-link active" href="/#/contact">Contact Us</a>
+	</li>
+  <li class="nav-item">
+    <a class="nav-link" href="/#/Users/">Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/#/shipment">Shipment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="/#/logout/">Log Out</a>
+  </li>
+</ul>
+<hr>
+  <div class="col-sm-6">
+
+    <div class="portal col">
+	<h2>List of shipments</h2><hr>
+        <div class="shipment" ng-repeat="shipment in dashboard.shipments"
+             ng-click="dashboard.setEditedShipment(shipment)"  
+			 ng-class="{'active':dashboard.isCurrentShipment(shipment.id)}">
+
+			 <button class="btn btn-primary" data-toggle="collapse" data-target="#collapse{{shipment.id}}" aria-expaned="true" aria-controls="collapseOne">
+			 {{shipment.id}}</button>
+            <button type="button" class="close" ng-click="dashboard.deleteShipment(shipment.id)">&times;</button>
+                                        <div class="collapse" id="collapse{{shipment.id}}" data-parent="#accordion">
+                                          Shipment ID :
+                                          {{shipment.id}}
+										  <br>
+										  Estimated Time of Arrival : 
+                                          {{shipment.estimatedTimeOfArrival}}
+										  <br>
+                                          Delivery Status :
+                                          {{shipment.status}}
+										  <br>
+										  Update Time :
+                                          {{shipment.updatedAt}}
+                                          <br>
+                                </div>  </div>
+         </div>  
+		 
+		 <br>
+		<h2>Latest Users</h2><hr>
+		{{user.id}}<button type="button" class="btn btn-info btn-lg" style="float:right;">Go to Users</button>
+						
+		  <br>
+		<h2>Latest Suppliers</h2><hr>
+		{{user.id}} <button type="button" class="btn btn-info btn-lg" style="float:right;">Go to Suppliers</button>
+						
+		<br>
+		<h2>USPS latest orders</h2><hr>
+		{{user.id}}<button type="button" class="btn btn-info btn-lg" style="float:right;">Go to Orders</button>
+						
+		
+		
+		 </div>
+
+		 
+			<div class="col-sm-6" style="float:right;">
+				<!-- CREATING -->
+				<div ng-if="!dashboard.isEditing" class="col-xs-12">
+					<h4>Add a New Shipment</h4>
+					<hr/>
+				<form class="create-form" role="form"
+						  ng-submit="dashboard.createShipment(dashboard.newShipment)" novalidate>
+						<div class="form-group">
+							<label>Shipment ID</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.newShipment.ShipmentId"
+								   placeholder="Enter Shipment ID">
+						</div>
+						<div class="form-group">
+							<label>Estimated Time of Arrival</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.newShipment.estimatedTimeOfArrival"
+								   placeholder="Enter Estimated Time of Arrival">
+						</div>
+						<div class="form-group">
+							<label>Shipment Status</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.newShipment.status"
+								   placeholder="Enter Status">
+						</div>
+						<div class="form-group">
+							<label>Shipment Last Update</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.newShipment.updatedAt"
+								   placeholder="Enter Shipment Update Date">
+						</div>
+						<button type="submit" class="btn btn-info btn-lg">Save</button>
+						<button type="button" class="btn btn-default btn-lg pull-right"
+								ng-click="dashboard.cancelEditing()">Cancel
+						</button>
+					</form>        
+				</div>   	      
+				<!-- EDITING -->
+				<div ng-if="dashboard.isEditing" class="col-xs-12">
+					<h4>Editing {{dashboard.editedShipment.id}}</h4>
+					<hr/>   
+					<form class="edit-form" role="form"
+						  ng-submit="dashboard.createShipment(dashboard.editedVehicle)" novalidate>
+						<div class="form-group">
+							<label>Shipment ID</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.editedVehicle.ShipmentId"
+								   placeholder="Enter Shipment ID">
+						</div>
+						<div class="form-group">
+							<label>Estimated Time of Arrival</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.editedVehicle.estimatedTimeOfArrival"
+								   placeholder="Enter Estimated Time of Arrival">
+						</div>
+						<div class="form-group">
+							<label>Shipment Status</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.editedVehicle.status"
+								   placeholder="Enter Status">
+						</div>
+						<div class="form-group">
+							<label>Shipment Last Update</label>
+							<input type="text" class="form-control"
+								   ng-model="dashboard.editedVehicle.updatedAt"
+								   placeholder="Enter Shipment Update Date">
+						</div>
+						<button type="submit" class="btn btn-info btn-lg">Save</button>
+						<button type="button" class="btn btn-default btn-lg pull-right"
+								ng-click="dashboard.cancelEditing()">Cancel
+						</button>
+					</form>        
+				</div>   
+			</div>
+			

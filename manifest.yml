@@ -1,0 +1,3 @@
+applications:
+- name: heavy-onion-app
+  memory: 256MB

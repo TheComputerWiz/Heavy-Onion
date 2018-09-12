@@ -1,0 +1,32 @@
+{
+  "name": "USPS",
+  "plural": "USPSs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "NEW"
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "deliveryLocation": {
+      "type": "string"
+    },
+    "deliveryStatus": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

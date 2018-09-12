@@ -1,0 +1,64 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Heavy Onion</title>
+  </head>
+  <!-- Navigation -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="/#/">
+			<img src="https://img1.wsimg.com/isteam/ip/856f1660-4bf8-4e94-91f8-b5951af276ce/logo/e6a8a9a7-adce-4c39-8be2-496dcf0bb3c5.jpg/:/rs=h:175" width="100%" height="100%" alt="">		  </a>
+            <ul class="nav">
+			  <li class="nav-item">
+				<a class="nav-link active" href="/#/">Home</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="/#/shop">Pre - Order</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="/#/app">App Download</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="/#/about">About</a>
+				</li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="/#/contact">Contact Us</a>
+				</li>
+			</ul>
+		
+		</nav>
+	</div>
+	<br>
+<h1>Heavy Onion</h1>
+Get our in-home unit and app. <br>
+Let fresh orders find you.
+<hr>
+
+<div class="col-sm-4 col-sm-offset-4">
+    <div class="portal col-xs-12">
+        <h4 class="col-xs-12">Create Account / Login</h4><br>
+		<hr>
+        <form class="col-xs-12" ng-submit="login.submit(login.user)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" class="form-control" type="email"
+                       ng-model="login.user.email" placeholder="Enter email"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" name="password" class="form-control" type="password"
+                       ng-model="login.user.password" placeholder="Enter password"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <input id="new_user" name="new_user" type="checkbox" ng-model="login.newUser"/>
+                <label for="new_user">I am a new user</label>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+{
+  "name": "shipment",
+  "plural": "shipments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "createdAt": {
+      "type": "date"
+    },
+    "shipmentId": {
+      "type": "string"
+    },
+    "deliveredAt": {
+      "type": "date"
+    },
+    "demoId": {
+      "type": "number",
+      "required": true
+    },
+    "estimatedTimeOfArrival": {
+      "type": "date",
+      "required": true
+    },
+    "fromId": {
+      "type": "number",
+      "required": true
+    },
+    "seed": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "NEW"
+    },
+    "toId": {
+      "type": "number",
+      "required": true
+    },
+    "updatedAt": {
+      "type": "date"
+    },
+    "averageSpeed": {
+      "type": "number"
+    },
+    "shipmentHumidity": {
+      "type": "number"
+    },
+    "shipmentTemp": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
